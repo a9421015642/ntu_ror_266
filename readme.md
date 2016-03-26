@@ -1,5 +1,3 @@
-## RoR266
-
 ## Ruby
 ### Ruby 學習資源
 https://github.com/yuyueugene84/ntu_ror_training_course/blob/master/learning_ruby_language_ch.md
