@@ -1,6 +1,6 @@
 1. 請解釋 database.yml, routes.rb, 和 Gemifle 分別是什麼？ 他們分別在一個 Rails 專案裡的什麼位置？ 他們為什麼對一個 Rails 專案如此重要？
-  #### ANS:
-  ```
+  #### ANS: 
+  ```ruby
   # 假設在一個名為 ror_project 的專案底下
 
 *database.yml: 
@@ -18,15 +18,17 @@ production 是用於正式環境上的設定
 bundler 會依據 gemfile 安裝該專案需要的套件
   ```
 2. MVC 架構裡的 M, V, 和 C 分別代表什麼？ 
-  #### Ans.
-  ```
+
+  #### ANS: 
+  ```ruby
     Model:封裝資料與商業邏輯，與資料庫裡的資料表對應
     View:使用者介面，顯示及編輯表單，可內嵌Ruby語法
     Controller:負責將資料送進送出Model，處理從外界(也就是瀏覽器)來的HTTP Request請求，與Model互動後輸出View(也就是HTML) 
   ```
 3. 請解釋 CRUD 是哪四個字的縮寫？  
-  #### ANS:
-  ```
+
+  #### ANS: 
+  ```ruby
   C: Create (建立)
   R: Read (讀取)
   U: Update (更新)
@@ -36,8 +38,8 @@ bundler 會依據 gemfile 安裝該專案需要的套件
   ```ruby
   resources :users
   ```
-    #### ANS:
-  ```
+  #### ANS: 
+  ```ruby
 users_path  ,GET ,  users#index
 ,POST, users#create
 new_user_path , GET, users#new
@@ -48,8 +50,9 @@ user_path , GET ,  users#show
 ,DELETE  ,  users#destroy
   ```
 5. 請解釋 model 檔案和 migration 檔案的差別
-  #### ANS:
-  ```
+
+  #### ANS: 
+  ```ruby
   Model 檔: 
   - 類別繼承 ActiveRecord::Base。
   - 在 model 檔中設定與資料表之間的關聯(一對一 / 一對多 / 多對多)，或基本 CRUD 的操作、資料驗證等。
@@ -61,8 +64,9 @@ user_path , GET ,  users#show
   - 無法直接編輯 migration 檔。如果要變更 migration，必須執行 $ rake db:rollback 後編輯，再次執行 $ rake db:rollback 後，編輯的內容才會生效。
   ```
 6. 若今天發現一個 migration 檔寫錯，請問我應該用什麼指令回復到上一個版本的 migration? 
+  
   #### ANS: 
-  ```
+  ```ruby
   $ rake db:rollback
 
   如果要回到上 n 個 migration，則用: $ rake db:rollback STEP=n
@@ -74,6 +78,7 @@ user_path , GET ,  users#show
     **description (text)**,
     **members (integer)**
     * 請寫出一個能產生出以上需求的 migration 檔
+
   #### ANS: 
   ```ruby
   class AddGroupTable < ActiveRecord::Migration
@@ -89,15 +94,16 @@ user_path , GET ,  users#show
   end
   ```
 8. 請解釋什麼是 ActiveRecord? 
+
   #### ANS: 
-  ```
+  ```ruby
   ActiveRecord: Rails 的 Models 基礎。
   每一個 model 檔是繼承於 Active Record 的 class  
   Active Record 的衍生類別 (model檔) 例用慣例決定應該對應到哪些資料庫中的表。
   此慣例即將類別名稱轉成複數名詞。
   ```
 9. 若今天需要為 ```Project``` 和 ```Issue``` 這兩個 Model 建立一對多的關係，請寫出實作上所需要的 migratiion 和 model 檔案 
-  #### Ans.  
+  #### ANS: 
   ```ruby
   # migration files   add_projects.rb
   class AddProjects < ActiveRecord::Migration
@@ -144,8 +150,9 @@ end
   end
   ```
   請寫出和這個 model 檔相關連的 model 檔，以及這些 model 檔所需要的資料庫欄位
-  #### Ans.  
-    ```ruby
+
+  #### ANS: 
+  ```ruby
     # migration files  add_groups_table.rb
 class AddGroupsTable < ActiveRecord::Migration
   def change
@@ -189,7 +196,8 @@ end
   end
   ```
 11. 延續第10題，如果需要讓一個叫 "Bob" 的使用者產生一個名字叫做 "Rails is Fun" 的社團，應該如何在 rails console 裡實作出來？
-#### ANS:
+
+  #### ANS: 
   ```ruby
   # 開啟 rails console
   $ rails c
