@@ -182,14 +182,14 @@ class AddUsersTable < ActiveRecord::Migration
   end
 end
   ```
-    ```ruby
+  ```ruby
     # models files  group_user.rb
   class GroupUser < ActiveRecord::Base
     belongs_to :group
     belongs_to :user
   end
   ```
-      ```ruby
+  ```ruby
     # models files  group.rb
   class Group < ActiveRecord::Base
     has_many :group_users
