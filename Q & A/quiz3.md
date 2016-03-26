@@ -38,6 +38,7 @@ bundler 會依據 gemfile 安裝該專案需要的套件
   ```ruby
   resources :users
   ```
+  
   #### ANS: 
   ```ruby
 users_path  ,GET ,  users#index
